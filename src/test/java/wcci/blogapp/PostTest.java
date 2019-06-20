@@ -21,7 +21,7 @@ public class PostTest {
 		assertThat(underTest.getPublishdate(), is(dateTime));
 		assertThat(underTest.getGenre(), is("genre"));
 		assertThat(underTest.getTags(), is("tags"));
-		
-	}
+	 }
+	
 
 }
