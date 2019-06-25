@@ -8,7 +8,7 @@ public class Post {
 	private String body;
 	private String authors;
 	private LocalDateTime publishdate;
-	private String genre;
+	private Genre genre;
 	private String tags;
 
 	public String getTitle() {
@@ -27,7 +27,7 @@ public class Post {
 		return publishdate;
 	}
 
-	public String getGenre() {
+	public Genre getGenre() {
 		return genre;
 	}
 
@@ -35,7 +35,7 @@ public class Post {
 		return tags;
 	}
 
-	public Post(String title, String body, String authors, LocalDateTime publishdate, String genre, String tags) {
+	public Post(String title, String body, String authors, LocalDateTime publishdate, Genre genre, String tags) {
 		super();
 		this.title = title;
 		this.body = body;

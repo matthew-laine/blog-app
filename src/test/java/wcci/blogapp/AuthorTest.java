@@ -10,38 +10,28 @@ import java.util.Collection;
 import org.junit.Test;
 
 public class AuthorTest {
-
+	private Genre genre = new Genre("Test genre");
 	private LocalDateTime dateTime = LocalDateTime.of(2015, Month.JULY, 29, 19, 30, 40);
-	Post postOne = new Post("title", "body", "authors", dateTime, "genre", "tags");
+	Post postOne = new Post("title", "body", "authors", dateTime, genre, "tags");
 	private LocalDateTime dateTime2 = LocalDateTime.of(2016, Month.JULY, 29, 19, 30, 40);
-	Post postTwo = new Post("title2", "body2", "authors2", dateTime2, "genre2", "tags2");
-	
+	Post postTwo = new Post("title2", "body2", "authors2", dateTime2, genre, "tags2");
+
 	Collection<Post> posts;
-	
-	
+
 	public Collection<Post> getPosts() {
 		return posts;
 	}
-
 
 	public void setPosts(Collection<Post> posts) {
 		this.posts = posts;
 	}
 
-
 	@Test
 	public void authorShouldHaveNamePosts() {
-		Author underTest = new Author("name","post");
-		
+		Author underTest = new Author("name", "post");
 		assertThat(underTest.getName(), is("name"));
 		assertThat(underTest.getPost(), is("post"));
-		
-		
-		
+
 	}
-
-	
-
-
 
 }
