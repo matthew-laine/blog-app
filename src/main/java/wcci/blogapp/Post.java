@@ -2,7 +2,15 @@ package wcci.blogapp;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 public class Post {
+	
+	@Id
+	@GeneratedValue
+	private long id;
+
 
 	private String title;
 	private String body;
@@ -10,6 +18,10 @@ public class Post {
 	private LocalDateTime publishdate;
 	private Genre genre;
 	private String tags;
+	
+	public long getId() {
+		return id;
+	}
 
 	public String getTitle() {
 		return title;
