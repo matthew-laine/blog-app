@@ -1,4 +1,4 @@
-package wcci.blogapp;
+package wcci.blogapp.unittests;
 
 import static org.junit.Assert.assertEquals;
 
@@ -7,6 +7,9 @@ import java.time.Month;
 import java.util.List;
 
 import org.junit.Test;
+
+import wcci.blogapp.units.Genre;
+import wcci.blogapp.units.Post;
 
 public class GenreTest {
 

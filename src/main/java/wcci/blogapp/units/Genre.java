@@ -1,4 +1,4 @@
-package wcci.blogapp;
+package wcci.blogapp.units;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,11 +8,6 @@ public class Genre {
 	private String name;
 	private List<Post> posts;
 
-	public Genre(String name) {
-		this.name = name;
-		this.posts = new ArrayList<>();
-		
-	}
 
 	public String getName() {
 
@@ -24,4 +19,14 @@ public class Genre {
 		return posts;
 	}
 
+	@SuppressWarnings("unused")
+	private Genre() {
+		
+	}
+	
+	public Genre(String name) {
+		this.name = name;
+		this.posts = new ArrayList<>();
+		
+	}
 }

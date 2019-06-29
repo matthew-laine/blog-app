@@ -1,4 +1,4 @@
-package wcci.blogapp;
+package wcci.blogapp.unittests;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -8,6 +8,10 @@ import java.time.Month;
 import java.util.Collection;
 
 import org.junit.Test;
+
+import wcci.blogapp.units.Author;
+import wcci.blogapp.units.Genre;
+import wcci.blogapp.units.Post;
 
 public class AuthorTest {
 	private Genre genre = new Genre("Test genre");
