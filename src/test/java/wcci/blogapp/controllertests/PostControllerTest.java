@@ -16,8 +16,8 @@ import org.mockito.Mockito;
 import org.springframework.ui.Model;
 
 import wcci.blogapp.controllers.PostController;
+import wcci.blogapp.models.Post;
 import wcci.blogapp.repositories.PostRepository;
-import wcci.blogapp.units.Post;
 
 public class PostControllerTest {
 
@@ -44,7 +44,7 @@ public class PostControllerTest {
 	@Test
 	public void shouldBeAbleToGetPosts() {
 		String posts = underTest.findAll(model);
-		assertThat(posts, is("postsTemplate"));
+		assertThat(posts, is("allPostsTemplate"));
 	}
 
 	@Test
@@ -52,6 +52,6 @@ public class PostControllerTest {
 		Collection<Post> posts = Arrays.asList(post1, post2);
 		Mockito.when(postRepo.findAll()).thenReturn(posts);
 		underTest.findAll(model);
-		verify(model).addAttribute("postsAttribute", posts);
+		verify(model).addAttribute("allPostsAttribute", posts);
 	}
 }

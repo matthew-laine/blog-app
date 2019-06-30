@@ -1,9 +1,18 @@
-package wcci.blogapp.units;
+package wcci.blogapp.models;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Genre {
+	
+	@Id
+	@GeneratedValue
+	private Long id;
 
 	private String name;
 	private List<Post> posts;

@@ -1,15 +1,24 @@
-package wcci.blogapp.units;
+package wcci.blogapp.models;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class PostTag {
+	
+	@Id
+	@GeneratedValue
+	private Long id;
+	
 	private String name;
 	private List<Post> posts;
 
 	public String getName() {
 		return name;
-
 	}
 
 	public List<Post> getPosts() {
@@ -18,18 +27,10 @@ public class PostTag {
 
 	@SuppressWarnings("unused")
 	private PostTag() {
-
 	}
 
 	public PostTag(String tagName) {
 		this.name = tagName;
-	}
-
-	public PostTag(String tagName, Post... posts) {
-		this.name = tagName;
-		this.posts = new ArrayList<Post>();
-		for (Post post : posts) {
-			this.posts.add(post);
-		}
+		this.posts = new ArrayList<>();
 	}
 }

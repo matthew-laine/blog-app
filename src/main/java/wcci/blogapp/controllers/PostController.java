@@ -11,8 +11,8 @@ public class PostController {
 	private PostRepository postRepo;
 
 	public String findAll(Model model) {
-		model.addAttribute("postsAttribute", postRepo.findAll());
-		return "postsTemplate";
+		model.addAttribute("allPostsAttribute", postRepo.findAll());
+		return "allPostsTemplate";
 	}
 
 }
