@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <ul class="items-list">
+                <li class="items-list__item">
+                    <h3 th:each="author: ${authorsAttribute}">
+                        <a th:text="${author.name}" th:href="|/all-authors/${author.id}|">Author Name</a>
+                    </h3>
+                </li>
+            </ul>
+        </div> <!-- /container -->
+    </div> <!-- /wrapper -->
+    <footer>&copy; 2019 Stephanie Shipley and Matthew Laine</footer>
+</body>
+
+</html>

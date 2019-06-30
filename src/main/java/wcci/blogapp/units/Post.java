@@ -1,15 +1,27 @@
-package wcci.blogapp;
+package wcci.blogapp.units;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 public class Post {
+	
+	@Id
+	@GeneratedValue
+	private long id;
+
 
 	private String title;
 	private String body;
 	private String authors;
 	private LocalDateTime publishdate;
-	private String genre;
+	private Genre genre;
 	private String tags;
+	
+	public long getId() {
+		return id;
+	}
 
 	public String getTitle() {
 		return title;
@@ -27,15 +39,20 @@ public class Post {
 		return publishdate;
 	}
 
-	public String getGenre() {
+	public Genre getGenre() {
 		return genre;
 	}
 
 	public String getTags() {
 		return tags;
 	}
+	
+	@SuppressWarnings("unused")
+	private Post() {
+		
+	}
 
-	public Post(String title, String body, String authors, LocalDateTime publishdate, String genre, String tags) {
+	public Post(String title, String body, String authors, LocalDateTime publishdate, Genre genre, String tags) {
 		super();
 		this.title = title;
 		this.body = body;
