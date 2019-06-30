@@ -30,17 +30,16 @@ public class PostControllerTest {
 
 	@Mock
 	private Post post1;
-	
+
 	@Mock
 	private Post post2;
-	
+
 	@Mock
 	Model model;
 
 	@Before
 	public void setUp() {
 		initMocks(this);
-
 	}
 
 	@Test
@@ -56,7 +55,7 @@ public class PostControllerTest {
 		underTest.findAll(model);
 		verify(model).addAttribute("allPostsAttribute", posts);
 	}
-	
+
 	@Test
 	public void shouldBeAbleToGetSinglePost() {
 		Optional<Post> post1Optional = Optional.of(post1);
@@ -65,7 +64,7 @@ public class PostControllerTest {
 		String post = underTest.findById(0L, model);
 		assertThat(post, is("singlePostTemplate"));
 	}
-	
+
 	@Test
 	public void shouldHaveSinglePostInModel() {
 		Optional<Post> post1Optional = Optional.of(post1);
@@ -73,9 +72,9 @@ public class PostControllerTest {
 		underTest.findById(0L, model);
 		verify(model).addAttribute("singlePostAttribute", post1);
 	}
-	
+
 	@Test
 	public void shouldBeAbleToAddPost() {
-		//still need to learn how to do this test
+		// still need to learn how to do this test
 	}
 }
