@@ -1,4 +1,4 @@
-package wcci.blogapp;
+package wcci.blogapp.units;
 
 import java.time.LocalDateTime;
 
@@ -45,6 +45,11 @@ public class Post {
 
 	public String getTags() {
 		return tags;
+	}
+	
+	@SuppressWarnings("unused")
+	private Post() {
+		
 	}
 
 	public Post(String title, String body, String authors, LocalDateTime publishdate, Genre genre, String tags) {

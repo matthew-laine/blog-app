@@ -1,8 +1,10 @@
-package wcci.blogapp;
+package wcci.blogapp.controllers;
 
 import javax.annotation.Resource;
 
 import org.springframework.ui.Model;
+
+import wcci.blogapp.repositories.PostRepository;
 
 public class PostController {
 	@Resource
