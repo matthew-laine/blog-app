@@ -63,7 +63,6 @@ public class AuthorControllerTest {
 	@Test
 	public void shouldBeAbleToGetSingleAuthor() {
 		Mockito.when(authorRepo.findById(0L)).thenReturn(author1Optional);
-		underTest.findById(0L, model);
 		String author = underTest.findById(0L, model);
 		assertThat(author, is("singleAuthorTemplate"));
 	}

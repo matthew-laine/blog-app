@@ -25,6 +25,15 @@ public class GenreController {
 	}
 
 	public String saveNewGenre(String name) {
+		boolean shouldAddGenre = shouldAddGenre(name);
+		if (shouldAddGenre) {
+			Genre genreToAdd = new Genre(name);
+			genreRepo.save(genreToAdd);
+		}
+		return "redirect:/genres";
+	}
+
+	private boolean shouldAddGenre(String name) {
 		Iterable<Genre> allGenres = genreRepo.findAll();
 		boolean addGenre = true;
 		for(Genre genre : allGenres) {
@@ -32,10 +41,6 @@ public class GenreController {
 				addGenre = false;
 			}
 		}
-		if (addGenre) {
-			Genre genreToAdd = new Genre(name);
-			genreRepo.save(genreToAdd);
-		}
-		return "redirect:/genres";
+		return addGenre;
 	}
 }
