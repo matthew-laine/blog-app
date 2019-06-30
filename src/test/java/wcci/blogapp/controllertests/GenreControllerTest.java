@@ -7,21 +7,18 @@ import static org.mockito.MockitoAnnotations.initMocks;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Optional;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 import wcci.blogapp.controllers.GenreController;
-import wcci.blogapp.controllers.PostController;
 import wcci.blogapp.models.Genre;
-import wcci.blogapp.models.Post;
 import wcci.blogapp.repositories.GenreRepository;
-import wcci.blogapp.repositories.PostRepository;
 
 public class GenreControllerTest {
 
@@ -58,6 +55,23 @@ public class GenreControllerTest {
 		Mockito.when(genreRepo.findAll()).thenReturn(genres);
 		underTest.findAll(model);
 		verify(model).addAttribute("allGenresAttribute", genres);
+	}
+	
+	@Test
+	public void shouldBeAbleToGetSingleGenre() {
+		Optional<Genre> genre1Optional = Optional.of(genre1);
+		Mockito.when(genreRepo.findById(0L)).thenReturn(genre1Optional);
+		underTest.findById(0L, model);
+		String post = underTest.findById(0L, model);
+		assertThat(post, is("singleGenreTemplate"));
+	}
+
+	@Test
+	public void shouldHaveSingleGenreInModel() {
+		Optional<Genre> genre1Optional = Optional.of(genre1);
+		Mockito.when(genreRepo.findById(0L)).thenReturn(genre1Optional);
+		underTest.findById(0L, model);
+		verify(model).addAttribute("singleGenreAttribute", genre1);
 	}
 
 }
