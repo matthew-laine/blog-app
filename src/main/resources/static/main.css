@@ -48,6 +48,12 @@ body,
 html {
   height: 100%;
 }
+
+body {
+  background-image: url("https://media.istockphoto.com/videos/closeup-of-grunge-american-usa-waving-flag-united-states-of-america-video-id688962802?s=640x640");
+  background-size: cover;
+}
+
 .hero-image {
   background-image: url("https://www.grace.edu/wp-content/uploads/2018/03/Military-Header-Image-1024x450.jpg");
 
@@ -96,8 +102,11 @@ html {
 }
 
 .footer {
-  display: inherit;
-  margin: 2rem;
-  padding: 2rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
   background-color: gray;
 }
