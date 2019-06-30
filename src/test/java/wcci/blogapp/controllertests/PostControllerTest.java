@@ -6,7 +6,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.MockitoAnnotations.initMocks;
 
 import java.util.Collection;
-
+import java.util.Optional;
 import java.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,8 +30,10 @@ public class PostControllerTest {
 
 	@Mock
 	private Post post1;
+	
 	@Mock
 	private Post post2;
+	
 	@Mock
 	Model model;
 
@@ -53,5 +55,27 @@ public class PostControllerTest {
 		Mockito.when(postRepo.findAll()).thenReturn(posts);
 		underTest.findAll(model);
 		verify(model).addAttribute("allPostsAttribute", posts);
+	}
+	
+	@Test
+	public void shouldBeAbleToGetSinglePost() {
+		Optional<Post> post1Optional = Optional.of(post1);
+		Mockito.when(postRepo.findById(0L)).thenReturn(post1Optional);
+		underTest.findById(0L, model);
+		String post = underTest.findById(0L, model);
+		assertThat(post, is("singlePostTemplate"));
+	}
+	
+	@Test
+	public void shouldHaveSinglePostInModel() {
+		Optional<Post> post1Optional = Optional.of(post1);
+		Mockito.when(postRepo.findById(0L)).thenReturn(post1Optional);
+		underTest.findById(0L, model);
+		verify(model).addAttribute("singlePostAttribute", post1);
+	}
+	
+	@Test
+	public void shouldBeAbleToAddPost() {
+		//still need to learn how to do this test
 	}
 }

@@ -57,11 +57,11 @@ public class Post {
 		
 	}
 
-	public Post(String title, String body, LocalDateTime publishdate) {
+	public Post(String title, String body, LocalDateTime publishDate) {
 		super();
 		this.title = title;
 		this.body = body;
-		this.publishdate = publishdate;
+		this.publishdate = publishDate;
 	}
 
 
