@@ -1,4 +1,4 @@
-package wcci.blogapp.controllertests;
+package wcci.blogapp.controllerstests;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;

@@ -1,4 +1,4 @@
-package wcci.blogapp.controllertests;
+package wcci.blogapp.controllerstests;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -62,8 +62,8 @@ public class GenreControllerTest {
 		Optional<Genre> genre1Optional = Optional.of(genre1);
 		Mockito.when(genreRepo.findById(0L)).thenReturn(genre1Optional);
 		underTest.findById(0L, model);
-		String post = underTest.findById(0L, model);
-		assertThat(post, is("singleGenreTemplate"));
+		String genre = underTest.findById(0L, model);
+		assertThat(genre, is("singleGenreTemplate"));
 	}
 
 	@Test
