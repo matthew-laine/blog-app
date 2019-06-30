@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
   box-sizing: border-box;
   margin: 0;
@@ -101,3 +102,14 @@ html {
   padding: 2rem;
   background-color: gray;
 }
+=======
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;    
+}
+
+ul {
+    list-style-type: none;
+}
+>>>>>>> dev
