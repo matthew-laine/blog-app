@@ -1,5 +1,7 @@
 package wcci.blogapp.controllers;
 
+import java.time.LocalDateTime;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import wcci.blogapp.models.Post;
 import wcci.blogapp.repositories.PostRepository;
 
 @Controller
@@ -29,7 +32,9 @@ public class PostController {
 	}
 	
 	@PostMapping({"/add", "/add/"})
-	public String saveNewPost(String title, String body, String publishDate) {
+	public String saveNewPost(String title, String body) {
+		Post postToAdd = new Post(title, body, LocalDateTime.now());
+		postRepo.save(postToAdd);
 		return "redirect:/posts";
 	}
 
