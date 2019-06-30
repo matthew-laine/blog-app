@@ -1,23 +1,28 @@
-package wcci.blogapp.units;
+package wcci.blogapp.models;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
+@Entity
 public class Post {
 	
 	@Id
 	@GeneratedValue
-	private long id;
+	private Long id;
 
 
 	private String title;
+	@Lob
 	private String body;
-	private String authors;
+	private List<Author> authors;
 	private LocalDateTime publishdate;
 	private Genre genre;
-	private String tags;
+	private List<PostTag> postTags;
 	
 	public long getId() {
 		return id;
@@ -31,7 +36,7 @@ public class Post {
 		return body;
 	}
 
-	public String getAuthors() {
+	public List<Author> getAuthors() {
 		return authors;
 	}
 
@@ -43,8 +48,8 @@ public class Post {
 		return genre;
 	}
 
-	public String getTags() {
-		return tags;
+	public List<PostTag> getPostTags() {
+		return postTags;
 	}
 	
 	@SuppressWarnings("unused")
@@ -52,14 +57,12 @@ public class Post {
 		
 	}
 
-	public Post(String title, String body, String authors, LocalDateTime publishdate, Genre genre, String tags) {
+	public Post(String title, String body, LocalDateTime publishDate) {
 		super();
 		this.title = title;
 		this.body = body;
-		this.authors = authors;
-		this.publishdate = publishdate;
-		this.genre = genre;
-		this.tags = tags;
+		this.publishdate = publishDate;
 	}
+
 
 }
