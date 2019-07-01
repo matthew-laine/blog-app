@@ -28,8 +28,36 @@
     <a href="/post-tags"><i class="tags-class"></i> Tags</a>
   </div> <!-- /navbar -->
 
+  <!-- <form class="post-form" action="/posts/add" method="POST">
+    <ul class="post-form__list">
+
+      <label class="post-form__field">
+        <h3>Title: </h3>
+        <input type="text" required name="title" placeholder="Enter Title here" />
+      </label>
+      <br>
+      <label class="post-form__field post-form__content">
+        <h3>Post: </h3>
+        <textarea type="text" required maxlength="1000" rows="3" cols="120" name="body"
+          placeholder="Enter Post here"></textarea>
+      </label>
+      <br>
+      <label>
+          <h3>Genre:</h3>
+          <input list="genres" name="genre" />
+          <select id="genres">
+            <option
+              th:each="genre: ${allGenresAttribute}"
+              th:value="${genre.name}">option
+            </option>
+          </select>
+        </label>
+    </ul>
+    <button class="review-form__button" type="submit">Submit</button>
+  </form> -->
+
   <main class="main">
-    <section class="category-card-gallery">
+    <section class="genre-card-gallery">
       <article class="card" th:each="post: ${allPostsAttribute}">
         <a th:href="|/posts/${post.id}|">
           <p class="card__title" th:text="${post.title}">Title</p>

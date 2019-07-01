@@ -39,19 +39,17 @@ public class PostController {
 	@PostMapping({"/add", "/add/"})
 	public String saveNewPost(String title, String body, String genre) {
 		Genre genreToAdd = null;
-		boolean makeNewGenre = true;
+		boolean addPost = false;
 		for (Genre foundGenre : genreRepo.findAll()) {
 			if (foundGenre.getName() == genre) {
-				makeNewGenre = false;
+				addPost = true;
 				genreToAdd = foundGenre;
 			}
 		}
-		if (makeNewGenre) {
-			genreToAdd = new Genre(genre);
-			genreRepo.save(genreToAdd);
+		if (addPost) {
+			Post postToAdd = new Post(title, body, genreToAdd, LocalDateTime.now());
+			postRepo.save(postToAdd);			
 		}
-		Post postToAdd = new Post(title, body, genreToAdd, LocalDateTime.now());
-		postRepo.save(postToAdd);
 		return "redirect:/posts";
 	}
 

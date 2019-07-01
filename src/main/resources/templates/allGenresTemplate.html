@@ -29,6 +29,15 @@
   </div> <!-- /navbar -->
 
   <main class="main">
+
+      <form class="genre-form" action="/genres/add" method="POST">
+        <ul class="genre-form__list">
+          <label class="genre-form__field">Tag:
+            <input type="text" name="name" placeholder="Enter New Genre Here" required /></label>
+        </ul>
+        <button class="genre-form__button" type="submit">Submit</button>
+      </form>
+
     <section class="category-card-gallery">
       <article class="card" th:each="genre: ${allGenresAttribute}">
           <a th:href="|/genres/${genre.id}|">
