@@ -6,6 +6,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import javax.annotation.Resource;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,11 +24,6 @@ import wcci.blogapp.repositories.PostTagRepository;
 @AutoConfigureMockMvc
 public class ApplicationTests {
 	
-	private void assertThatStatusIsOk(String mapping) throws Exception {
-		ResultActions performMockGetRequest = this.mockMvc.perform(get(mapping));
-		ResultActions response = performMockGetRequest.andDo(print());
-		response.andExpect(status().isOk());
-	}
 	
 	@Resource
 	private MockMvc mockMvc;
@@ -43,5 +39,30 @@ public class ApplicationTests {
 	
 	@Resource
 	private PostTagRepository postTagRepo;
-
+	
+	private void assertThatStatusIsOk(String mapping) throws Exception {
+		ResultActions performMockGetRequest = this.mockMvc.perform(get(mapping));
+		ResultActions response = performMockGetRequest.andDo(print());
+		response.andExpect(status().isOk());
+	}
+	
+	@Test
+	public void postsStatusShouldBeOk() throws Exception {
+		assertThatStatusIsOk("/posts");
+	}
+	
+	@Test
+	public void genresStatusShouldBeOk() throws Exception {
+		assertThatStatusIsOk("/genres");
+	}
+	
+	@Test
+	public void authorsStatusShouldBeOk() throws Exception {
+		assertThatStatusIsOk("/authors");
+	}
+	
+	@Test
+	public void postTagsStatusShouldBeOk() throws Exception {
+		assertThatStatusIsOk("/post-tags");
+	}
 }
