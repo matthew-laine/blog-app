@@ -1,5 +1,6 @@
 package wcci.blogapp.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -18,9 +19,9 @@ public class Author {
 	private String name;
 	
 	@ManyToMany
-	private List<Post> posts;
+	private List<Post> posts = new ArrayList<Post>();
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -44,10 +45,12 @@ public class Author {
 
 	public void addPost(Post postToAdd) {
 		boolean addPost = true;
-		for (Post post : posts) {
-			if (post.getId() == postToAdd.getId()) {
-				addPost = false;
-			}
+		if (posts.size() > 0) {
+			for (Post post : posts) {
+				if (post.getId() == postToAdd.getId()) {
+					addPost = false;
+				}
+			}	
 		}
 		if (addPost) {
 			posts.add(postToAdd);

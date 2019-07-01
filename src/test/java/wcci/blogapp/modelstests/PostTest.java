@@ -23,7 +23,7 @@ public class PostTest {
 
 	@Before
 	public void setup() {
-		underTest = new Post("title", "body", dateTime);
+		underTest = new Post("title", "body", null, dateTime);
 		fred = new Author("Fred");
 		tag = new PostTag("Tag");
 	}

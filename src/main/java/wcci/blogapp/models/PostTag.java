@@ -18,7 +18,7 @@ public class PostTag {
 	private String name;
 	
 	@ManyToMany
-	private List<Post> posts;
+	private List<Post> posts = new ArrayList<Post>();
 
 	public String getName() {
 		return name;
@@ -34,7 +34,6 @@ public class PostTag {
 
 	public PostTag(String tagName) {
 		this.name = tagName;
-		this.posts = new ArrayList<>();
 	}
 	
 	public void addPost(Post postToAdd) {
@@ -49,7 +48,7 @@ public class PostTag {
 		}
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 }

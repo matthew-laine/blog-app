@@ -47,7 +47,7 @@ public class DataJpaTests {
 		entityManager.persist(author);
 		PostTag postTag = new PostTag("Tag");
 		entityManager.persist(postTag);
-		Post post = new Post("Title", "Lorem Ipsum Stuff", LocalDateTime.now());
+		Post post = new Post("Title", "Lorem Ipsum Stuff", null, LocalDateTime.now());
 		entityManager.persist(post);
 		
 	}

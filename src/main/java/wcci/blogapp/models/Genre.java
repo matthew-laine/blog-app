@@ -19,6 +19,10 @@ public class Genre {
 
 	@OneToMany(mappedBy = "genre")
 	private List<Post> posts;
+	
+	public Long getId() {
+		return id;
+	}
 
 	public String getName() {
 
@@ -38,6 +42,17 @@ public class Genre {
 	public Genre(String name) {
 		this.name = name;
 		this.posts = new ArrayList<>();
-
+	}
+	
+	public void addPost(Post postToAdd) {
+		boolean addPost = true;
+		for (Post post : posts) {
+			if (post.getId() == postToAdd.getId() || post.getGenre() != null) {
+				addPost = false;
+			}
+		}
+		if (addPost) {
+			posts.add(postToAdd);
+		}
 	}
 }

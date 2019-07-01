@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import wcci.blogapp.models.Genre;
 import wcci.blogapp.models.Post;
+import wcci.blogapp.repositories.GenreRepository;
 import wcci.blogapp.repositories.PostRepository;
 
 @Controller
@@ -18,6 +20,9 @@ import wcci.blogapp.repositories.PostRepository;
 public class PostController {
 	@Resource
 	private PostRepository postRepo;
+	
+	@Resource
+	private GenreRepository genreRepo;
 
 	@RequestMapping({"", "/"})
 	public String findAll(Model model) {
@@ -32,8 +37,20 @@ public class PostController {
 	}
 	
 	@PostMapping({"/add", "/add/"})
-	public String saveNewPost(String title, String body) {
-		Post postToAdd = new Post(title, body, LocalDateTime.now());
+	public String saveNewPost(String title, String body, String genre) {
+		Genre genreToAdd = null;
+		boolean makeNewGenre = true;
+		for (Genre foundGenre : genreRepo.findAll()) {
+			if (foundGenre.getName() == genre) {
+				makeNewGenre = false;
+				genreToAdd = foundGenre;
+			}
+		}
+		if (makeNewGenre) {
+			genreToAdd = new Genre(genre);
+			genreRepo.save(genreToAdd);
+		}
+		Post postToAdd = new Post(title, body, genreToAdd, LocalDateTime.now());
 		postRepo.save(postToAdd);
 		return "redirect:/posts";
 	}

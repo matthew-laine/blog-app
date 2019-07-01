@@ -34,7 +34,7 @@ public class Post {
 	@ManyToMany(mappedBy = "posts")
 	private List<PostTag> postTags;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -67,7 +67,7 @@ public class Post {
 
 	}
 
-	public Post(String title, String body, LocalDateTime publishDate) {
+	public Post(String title, String body, Genre genre, LocalDateTime publishDate) {
 		super();
 		this.title = title;
 		this.body = body;
