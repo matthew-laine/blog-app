@@ -1,6 +1,7 @@
 package wcci.blogapp.models;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -22,7 +23,7 @@ public class Post {
 	@Lob
 	private String body;
 
-	@ManyToMany(mappedBy="posts")
+	@ManyToMany(mappedBy = "posts")
 	private List<Author> authors;
 
 	private LocalDateTime publishdate;
@@ -30,7 +31,7 @@ public class Post {
 	@ManyToOne
 	private Genre genre;
 
-	@ManyToMany(mappedBy="posts")
+	@ManyToMany(mappedBy = "posts")
 	private List<PostTag> postTags;
 
 	public long getId() {
@@ -71,6 +72,16 @@ public class Post {
 		this.title = title;
 		this.body = body;
 		this.publishdate = publishDate;
+		this.authors = new ArrayList<Author>();
+		this.postTags = new ArrayList<PostTag>();
+	}
+
+	public void addAuthor(Author author) {
+		authors.add(author);
+	}
+
+	public void addPostTag(PostTag postTag) {
+		postTags.add(postTag);
 	}
 
 }
