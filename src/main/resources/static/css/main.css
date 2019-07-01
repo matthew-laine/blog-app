@@ -113,11 +113,12 @@ body {
 }
 
 .footer {
-  position: absolute;
-  bottom: 0%;
-  width: 50%;
-  height: 50px;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 2rem;
   font-size: 20px;
   text-align: left;
   background-color: gray;
+  align-self: center;
 }
