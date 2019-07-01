@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class PostTag {
@@ -15,6 +16,8 @@ public class PostTag {
 	private Long id;
 	
 	private String name;
+	
+	@ManyToMany
 	private List<Post> posts;
 
 	public String getName() {

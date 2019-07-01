@@ -7,23 +7,32 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Post {
-	
+
 	@Id
 	@GeneratedValue
 	private Long id;
 
-
 	private String title;
+
 	@Lob
 	private String body;
+
+	@ManyToMany(mappedBy="posts")
 	private List<Author> authors;
+
 	private LocalDateTime publishdate;
+
+	@ManyToOne
 	private Genre genre;
+
+	@ManyToMany(mappedBy="posts")
 	private List<PostTag> postTags;
-	
+
 	public long getId() {
 		return id;
 	}
@@ -51,10 +60,10 @@ public class Post {
 	public List<PostTag> getPostTags() {
 		return postTags;
 	}
-	
+
 	@SuppressWarnings("unused")
 	private Post() {
-		
+
 	}
 
 	public Post(String title, String body, LocalDateTime publishDate) {
@@ -63,6 +72,5 @@ public class Post {
 		this.body = body;
 		this.publishdate = publishDate;
 	}
-
 
 }
