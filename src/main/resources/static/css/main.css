@@ -3,18 +3,27 @@
   margin: 0;
   padding: 0;
 }
+
 ul {
   list-style-type: none;
 }
 
 html {
-  font: 20px/1.618;
-  --color-text: black;
+  font: 20px/1.618 sans-serif;
+  --color-text: grey;
   --color-link-hover: rgb(245, 10, 49);
   text-decoration: none;
   color: var(--color-text);
 }
 
+a {
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+a:hover {
+  color:var(--color-link-hover);
+}
 .navbar {
   width: 100%;
   background-color: #555;

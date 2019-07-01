@@ -11,28 +11,30 @@
 </head>
 
 <body>
-    <header class="hero-image">
-      <div class="hero-text">
-        <h1>From Base to Home</h1>
-        <p>
-          Dedicated to making the transition easier for military & families
-        </p>
-        <p>One post at a time</p>
-      </div>
-    </header>
+  <header class="hero-image">
+    <div class="hero-text">
+      <h1>From Base to Home</h1>
+      <p>
+        Dedicated to making the transition easier for military & families
+      </p>
+      <p>One post at a time</p>
+    </div>
+  </header>
 
-    <div class="navbar">
-      <a href="/posts"><i class="post-class"></i>Posts</a>
-      <a href="/authors"><i class="authors-class"></i> Authors</a>
-      <a href="/genres"><i class="genres-class"></i> Genres</a>
-      <a href="/post-tags"><i class="tags-class"></i> Tags</a>
-    </div> <!-- /navbar -->
+  <div class="navbar">
+    <a href="/posts"><i class="post-class"></i>Posts</a>
+    <a href="/authors"><i class="authors-class"></i> Authors</a>
+    <a href="/genres"><i class="genres-class"></i> Genres</a>
+    <a href="/post-tags"><i class="tags-class"></i> Tags</a>
+  </div> <!-- /navbar -->
 
-    <main class="main">
-      <section class="category-card-gallery">
-        <article class="card" th:each="postTag: ${allPostTagsAttribute}">
+  <main class="main">
+    <section class="category-card-gallery">
+      <article class="card" th:each="postTag: ${allPostTagsAttribute}">
+          <a th:href="|/post-tags/${postTag.id}|">
           <p class="card__title" th:text="${postTag.name}">Tag Name</p>
-        </article>
+        </a>
+      </article>
 </body>
 <footer class="footer">
   &copy; 2019 From Base to Home
