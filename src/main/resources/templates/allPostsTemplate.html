@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="main.css" />
 
-    <title>Document</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="/css/main.css" />
 
-  <body>
+  <title>Document</title>
+</head>
+
+<body>
     <header class="hero-image">
       <div class="hero-text">
         <h1>From Base to Home</h1>
@@ -20,44 +21,22 @@
       </div>
     </header>
 
-      <nav class="navbar">
-          <a class="navbar__item" href="#">About</a>
-          <a class="navbar__item" href="/posts">Posts</a>
-          <a class="navbar__item" href="/authors">Authors</a>
-          <a class="navbar__item" href="/genres">Genres</a>
-          <a class="navbar__item" href="/post-tags">Tags</a>
-      </nav> <!-- /navbar -->
+    <div class="navbar">
+      <a href="/posts"><i class="post-class"></i>Posts</a>
+      <a href="/authors"><i class="authors-class"></i> Authors</a>
+      <a href="/genres"><i class="genres-class"></i> Genres</a>
+      <a href="/post-tags"><i class="tags-class"></i> Tags</a>
+    </div> <!-- /navbar -->
 
     <main class="main">
       <section class="category-card-gallery">
-        <article class="card">
-          <p class="card__title">Blog entry 1</p>
-          <h1>For military</h1>
+        <article class="card" th:each="post: ${allPostsAttribute}">
+          <p class="card__title" th:text="${post.title}">Title</p>
+          <h1 th:text="${post.genre.name}">Genre</h1>
         </article>
+</body>
+<footer class="footer">
+  &copy; 2019 From Base to Home
+</footer>
 
-        <article class="card">
-          <p class="card__title">Blog entry 2</p>
-          <h1>For families</h1>
-        </article>
-
-        <article class="card">
-          <p class="card__title">Blog entry 3</p>
-          <h1>mmmm</h1>
-        </article>
-
-        <article class="card">
-          <p class="card__title">Blog entry 4</p>
-          <h1>mmmm</h1>
-        </article>
-
-        <article class="card">
-          <p class="card__title">Blog entry 5</p>
-          <h1>mmmm</h1>
-        </article>
-      </section>
-    </main>
-  </body>
-  <footer class="footer">
-    &copy; 2019 From Base to Home
-  </footer>
 </html>
