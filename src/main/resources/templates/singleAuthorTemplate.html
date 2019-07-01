@@ -30,12 +30,11 @@
 
     <main class="main">
         <h2 th:text="${singleAuthorAttribute.name}">Name</h2>
-            <div>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero minus nemo eius nihil incidunt
-                    voluptatibus iure illum, doloribus impedit rerum accusamus reprehenderit molestiae praesentium
-                    aliquam
-                    non illo nisi quod? Saepe?</p>
-            </div>
+        <div th:each="post: ${singleAuthorAttribute.post}">
+            <a th:href="|/posts/${post.id}|">
+                <h3 th:text="${post.title}">Lorem ipsum,</h3>
+            </a>
+        </div>
 
     </main>
 </body>
