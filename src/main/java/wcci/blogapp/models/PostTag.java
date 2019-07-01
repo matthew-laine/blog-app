@@ -36,4 +36,20 @@ public class PostTag {
 		this.name = tagName;
 		this.posts = new ArrayList<>();
 	}
+	
+	public void addPost(Post postToAdd) {
+		boolean addPost = true;
+		for (Post post : posts) {
+			if (post.getId() == postToAdd.getId()) {
+				addPost = false;
+			}
+		}
+		if (addPost) {
+			posts.add(postToAdd);
+		}
+	}
+
+	public long getId() {
+		return id;
+	}
 }

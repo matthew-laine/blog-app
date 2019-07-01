@@ -19,6 +19,10 @@ public class Author {
 	
 	@ManyToMany
 	private List<Post> posts;
+	
+	public long getId() {
+		return id;
+	}
 
 	public String getName() {
 		return name;
@@ -38,4 +42,15 @@ public class Author {
 		this.name = name;
 	}
 
+	public void addPost(Post postToAdd) {
+		boolean addPost = true;
+		for (Post post : posts) {
+			if (post.getId() == postToAdd.getId()) {
+				addPost = false;
+			}
+		}
+		if (addPost) {
+			posts.add(postToAdd);
+		}
+	}
 }
