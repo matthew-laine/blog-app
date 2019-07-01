@@ -17,10 +17,14 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import wcci.blogapp.models.Author;
 import wcci.blogapp.models.Genre;
 import wcci.blogapp.models.Post;
+import wcci.blogapp.models.PostTag;
+import wcci.blogapp.repositories.AuthorRepository;
 import wcci.blogapp.repositories.GenreRepository;
 import wcci.blogapp.repositories.PostRepository;
+import wcci.blogapp.repositories.PostTagRepository;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest
@@ -34,12 +38,24 @@ public class WebMvcTests {
 	
 	@MockBean
 	private GenreRepository genreRepo;
+	
+	@MockBean
+	private AuthorRepository authorRepo;
+	
+	@MockBean
+	private PostTagRepository postTagRepo;
 
 	@Mock
 	private Post post;
 	
 	@Mock
 	private Genre genre;
+	
+	@Mock
+	private Author author;
+	
+	@Mock
+	private PostTag postTag;
 	
 	@Test
 	public void shouldReturnAllPostsPage() throws Exception {
@@ -63,5 +79,17 @@ public class WebMvcTests {
 		Optional<Genre> genreOptional = Optional.of(genre);
 		when(genreRepo.findById(1L)).thenReturn(genreOptional);
 		this.mvc.perform(get("/genres/1")).andDo(print()).andExpect(status().isOk());
+	}
+	
+	@Test
+	public void shouldReturnAllAuthorsPage() throws Exception {
+		this.mvc.perform(get("/authors")).andDo(print()).andExpect(status().isOk());
+	}
+	
+	@Test
+	public void shouldReturnAuthor1Page() throws Exception {
+		Optional<Author> authorOptional = Optional.of(author);
+		when(authorRepo.findById(1L)).thenReturn(authorOptional);
+		this.mvc.perform(get("/authors/1")).andDo(print()).andExpect(status().isOk());
 	}
 }

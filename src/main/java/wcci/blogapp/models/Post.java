@@ -75,13 +75,4 @@ public class Post {
 		this.authors = new ArrayList<Author>();
 		this.postTags = new ArrayList<PostTag>();
 	}
-
-	public void addAuthor(Author author) {
-		authors.add(author);
-	}
-
-	public void addPostTag(PostTag postTag) {
-		postTags.add(postTag);
-	}
-
 }

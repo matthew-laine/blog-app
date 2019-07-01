@@ -1,7 +1,6 @@
 package wcci.blogapp.modelstests;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.is;
 
 import java.time.LocalDateTime;
@@ -34,19 +33,5 @@ public class PostTest {
 		assertThat(underTest.getTitle(), is("title"));
 		assertThat(underTest.getBody(), is("body"));
 		assertThat(underTest.getPublishdate(), is(dateTime));
-	}
-
-	@Test
-	public void shouldBeAbleToAddAuthor() {
-		underTest.addAuthor(fred);
-		Iterable<Author> authors = underTest.getAuthors();
-		assertThat(authors, hasItem(fred));
-	}
-
-	@Test
-	public void shouldBeAbleToAddPostTag() {
-		underTest.addPostTag(tag);
-		Iterable<PostTag> postTags = underTest.getPostTags();
-		assertThat(postTags, hasItem(tag));
 	}
 }
