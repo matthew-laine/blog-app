@@ -73,6 +73,7 @@ public class Post {
 		this.body = body;
 		this.publishdate = publishDate;
 		this.authors = new ArrayList<Author>();
+		this.genre = genre;
 		this.postTags = new ArrayList<PostTag>();
 	}
 }
